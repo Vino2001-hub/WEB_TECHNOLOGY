@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Product Inquiry Form</title>
+    <style>
+        body{
+          background-color:black;
+        }
+        h1{
+            text-shadow: 1px 1px 10px white;
+        }
+        #table{
+            background-image: radial-gradient(orange,rgb(241, 112, 112));
+            margin: 0 auto;
+            width: 1000px;
+            text-align: center;
+            box-shadow: 1px 1px 16px white;
+        }
+       
+        th,td{
+            padding: 15px;
+        }
+        input,textarea{
+            border:1px solid black;
+            border-radius: 5px;
+            background-image: linear-gradient(white,#ffc0cb);
+        }
+        input:hover{
+            box-shadow: 1px 1px 3px black; 
+        }
+        textarea:hover{
+            box-shadow: 1px 1px 3px black;
+        }
+        div{
+            display: flex;
+            width: 250px;
+            margin:0 auto;
+            align-items: center;
+            justify-content: center;
+        }
+        #submit,#reset{
+            margin-top: 90px;
+            width: 100px;
+            padding: 10px;
+            background-image: linear-gradient(rgb(66, 66, 168) , yellow);
+           
+        }
+        #submit:hover{
+            box-shadow: 1px 1px 10px white; 
+        }
+        #reset:hover{
+            box-shadow: 1px 1px 10px white; 
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color:white;">Product Inquiry Form</h1><hr>
+    <br><br><br>
+    <div>
+        <form method="post">
+            <table id="table">
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" name="text" placeholder="eg&nbsp:&nbsp ARUN S" pattern="[A-Z]{*}" required></td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+                    <td><input type="date" name="date of birth" required></td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td><input type="radio" name="gender" value="Male">Male &nbsp
+                        <input type="radio" name="gender" value="Female">Female &nbsp
+                        <input type="radio" name="gender" value="Other">Other
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input type="email" name="email" ></td>
+                </tr>
+                <tr>
+                    <th>Mobile no</th>
+                    <td><input type="text" name="mobileno" pattern="[0-9]{10}" required></td>
+                </tr>
+                <tr>
+                    <th>Delivery address</th>
+                    <td><textarea name="address" rows="5" cols="40" placeholder="Enter your address" required></textarea></td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td><input type="text" name="city" pattern="[A-Z]{*}" required></td>
+                </tr>
+                <tr>
+                    <th>Pincode</th>
+                    <td><input type="text" name="pincode" pattern="[0-9]{6}" required></td>
+                </tr>
+                <tr>
+                    <th>Products Interested</th>
+                    <td>
+                        <input type="checkbox" id="checkbox" multiple>Blender &nbsp;
+                        <input type="checkbox" id="checkbox" >Coffee maker &nbsp;
+                        <input type="checkbox" id="checkbox" >Clothes dryer &nbsp;
+                        <input type="checkbox" id="checkbox" >Clothes iron &nbsp;
+                        <input type="checkbox" id="checkbox" >Electric guitar &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <th>Purchase Mode</th>
+                    <td><input type="radio"  name="mode" value="Online mode without EMI" required>Online mode without EMI
+                        <input type="radio"  name="mode" value="Offline mode without EMI" >Offline mode without EMI
+                        <input type="radio"  name="mode" value="Online mode with EMI " >Online mode with EMI
+                        <input type="radio"  name="mode" value="Offline mode with EMI " >Offline mode with EMI
+                    </td>
+                </tr>
+            </table>
+            <div>
+            <input type="submit" name="submit" id="submit" value="Submit" title="click here to submit the form">&nbsp;
+            <input type="reset" name="reset" id="reset" value="Reset" title="click here to reset the form">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
