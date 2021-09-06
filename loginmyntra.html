@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Login</title>
+
+    <style>
+        body
+        {
+            font-family: 'Besley', serif;
+            padding: 6%;
+            background-color: rgb(164, 165, 165);
+        }
+        form i
+         {
+            float: right;
+            margin-right: 8px;
+            margin-top: -30px;
+            position: relative;
+            /* z-index: 2; */
+            cursor:pointer;    
+         }
+        .form-control
+        {
+            background-color: honeydew;
+            border-radius: 10px;
+        }
+        .form-control:hover
+        {
+            border:1px solid black;
+            border-radius: 10px;
+        }
+        .buttonflex 
+        {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0% auto;
+            width: 50%;
+            margin-top: 40px;
+            border-radius: 10px;
+            border:1px solid rgb(204, 204, 218);
+            background-color: rgb(18, 167, 162);
+        }
+        .buttonflex:hover
+        {
+            border:1px solid black;
+        }
+        
+    </style>
+</head>
+<body>
+    
+      <div class="container" style=" width: 70%; " >
+        <div class="row">
+          <div class="col-6" >
+            <img src="diamond.jpg" class="rounded" alt="Ring image" style="background-size: cover;">
+            <!-- <img src="diamond.jpg" class="img-fluid" alt="Responsive image"> -->
+          </div>
+          <div class="col-4" style="background-color: rgb(177, 224, 238); border-radius: 5px;" >
+           
+            <form>
+                <div class="form-group"  >
+                  <label for="formGroupExampleInput" style="font-size: 18px;">Username</label><br>
+                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder=""><br>
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput2" style="font-size:18px;">Password</label><br>
+                  <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="......"minlength="8" ><i class="bi bi-eye-slash" id="togglePassword"></i><br>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2" style="font-size:18px;">Confirm Password</label><br>
+                    <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="...... " minlength="8" ><i class="bi bi-eye-slash" id="togglePassword"></i>
+                  </div>
+            </form>
+           
+            <button type="button" class="buttonflex" >Sign Up</button><br>
+            <p>Already have an account?|<a href="" style="text-decoration: none;">Login</a></p>
+            
+
+          </div>
+        </div>
+
+      </div>
+ 
+  
+    
+</body>
+</html>
