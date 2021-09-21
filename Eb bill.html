@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TN EB BILL CALCULATOR</title>
+</head>
+<style>
+     body
+     {
+        background-image: linear-gradient(to top , #ffffff, rgb(203, 231, 42));
+     }
+    img
+    {
+        height: 10%;
+        width: 10%;
+        float: left;
+        padding: 5px;
+    }
+    h1
+    {
+      color:black;
+      font-family:cursive;
+      text-align: center;
+      padding: 50px;
+      text-shadow: 0px 2px gray;
+    }
+    .head
+    {
+        border-radius: 20px;
+        background-color:white;
+
+    }
+    .tab
+    {
+        display: flex;
+        width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        justify-content: center;
+        background-image: linear-gradient(to right , rgb(145, 240, 145), violet);
+        box-shadow: 0px 0px 3px 7px rgb(54, 46, 161);
+    }
+    .button
+    {
+        display: flex;
+        width: 80px;
+        margin: 0% auto;
+        justify-content: center;
+        font-family:cursive;
+        padding: 5px;
+        border-radius: 10px;
+        border: 3px solid rgb(54, 46, 161);
+    }
+    .button:hover
+    {
+       border: none;
+       border-bottom:5px solid darkslategrey;
+       font-weight: bold;
+    }
+    
+    td , input , select
+    {
+        padding: 10px;
+        font-family:cursive;
+    }
+    #total
+    {
+        font-family: cursive;
+        display: flex;
+        width: 300px;
+        height: 100px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 5px 5px 5px 5px black;
+        background-image: linear-gradient(to right , rgb(235, 166, 139), rgb(77, 177, 207));
+    }
+</style>
+
+<body>
+    <div class="head">
+    <img src="eb.png" alt="eb logo">
+    <h1>TN EB BILL CALCULATOR</h1>
+    </div>
+    <br>
+    <div class="tab">
+<table>
+    <tr>
+        <td>Tariff check</td>
+        <td><select id="tariff type" size="1">	
+            <option value="">---Select the Tariff---</option>
+            <option value="COMMERCIAL">COMMERCIAL</option>
+            <option value="DOMESTIC">DOMESTIC</option>
+        </select><span style="color:red;" id="msg"></span></td>
+    </tr>
+    <tr>
+        <td>Billing Cycle</td>
+        <td><input type="text" value="Bi-Monthly" readonly></td>
+    </tr>
+    <tr>
+        <td>Contracted Load(Not required for 'Domestic tariff')</td>
+        <td><input type="text" id ="load"><span style="color:red;" id="msg2"></span></td>
+    </tr>
+    <tr>
+        <td>Consumed Units</td>
+        <td><input type="text" id="unit"><span style="color:red;" id="msg1"></span></td>
+    </tr>
+</table>
+</div>
+<br><br>
+<input type="button" name="calculate" value="Calculate" class="button" onclick="calculate()">
+<br><br>
+<p id="total"></p>
+
+</body>
+
+<script type="text/javascript">
+   function calculate()
+   {
+     var amount,units,uni,fix;
+     var tariff = document.getElementById('tariff type').value;
+     var unit = document.getElementById('unit').value;
+     var load = document.getElementById('load').value;
+     console.log(unit);
+     if(tariff == 'COMMERCIAL' || tariff == 'DOMESTIC')
+     {
+        document.getElementById('msg').innerHTML="";
+        if(tariff=='DOMESTIC')
+        {
+           if(unit>100)
+           { 
+            document.getElementById('msg1').innerHTML="";  
+             if(unit<=200)
+             {
+               units = unit-100;
+               fix = 20;
+               amount = (units * 1.5 ) + fix;
+             }
+             else if(unit>200 && unit <=500)
+             {
+                 fix = 30;
+                 units = unit - 200;
+                 amount = (100 * 2) + (units * 3) + fix;
+             }
+             else if(unit>500)
+             {
+                 fix = 50;
+                 units = unit - 500;
+                 amount = (100 * 3.5) + (300 * 4.6) + (units * 6.6) + fix;
+             }
+           }
+           else if(unit>0 && unit<=100)
+           {
+             document.getElementById('msg1').innerHTML="";
+             amount = 0;
+           }
+           else if(unit=="")
+           {
+            document.getElementById('msg1').innerHTML="Enter the units ";
+           }
+        }
+        
+        else if(tariff=='COMMERCIAL')
+        {
+            if(load!="" && unit!="")
+            {
+             document.getElementById('msg2').innerHTML=" ";  
+             document.getElementById('msg1').innerHTML=" ";
+            if(unit>0 && unit<=100)
+            {
+              units = unit * 5;
+              uni = units * 0.5;
+              fix = load * 140;
+              amount = units + uni + fix;
+            }
+            else if(unit>100)
+            {
+                units = unit * 8.05;
+                uni = units * 0.5;
+                fix = load * 140;
+                amount = units + uni + fix;
+            }
+          }
+          else if (load=="")
+          {
+            document.getElementById('msg1').innerHTML="";    
+            document.getElementById('msg2').innerHTML="Enter the load ";    
+          }
+          else if(unit=="")
+          {
+            document.getElementById('msg2').innerHTML=" "; 
+            document.getElementById('msg1').innerHTML="Enter the units ";  
+          }
+
+        }
+        document.getElementById('total').innerHTML="Total Electricity Bill = "+amount ;
+    }
+     else
+     {
+        document.getElementById('msg').innerHTML="Choose the type correctly";
+     }
+    
+   } 
+</script>
+
+</html>
